@@ -1,0 +1,44 @@
+{
+  //   "workbench.colorCustomizations": {
+  //     "statusBar.background": "#181818",
+  //     // "statusBar.noFolderBackground": "#212121",
+  //     "statusBar.debuggingBackground": "#272828",
+  //     "statusBar.debuggingForeground": "#bebfc8"
+  //   }
+
+  "workbench.colorCustomizations": {
+    "[The Dragonight]": {
+      "editor.foreground": "#848ebf"
+    },
+    "[Default Dark+]": {
+      "statusBar.background": "#181818",
+      "statusBar.debuggingBackground": "#181818",
+      "statusBar.debuggingForeground": "#bebfc8",
+
+      "terminal.foreground": "#ae2d2d"
+    },
+    "[Default Dark+ Experimental]": {
+      "terminal.foreground": "#848484"
+    }
+  },
+
+  "editor.tokenColorCustomizations": {
+    "[The Dragonight]": {
+      "strings": "#ce9178",
+      "variables": "#e340ce"
+    },
+    "[Default Dark+]": {
+      // "variables": "#4990aa"
+      // "variables": "#2a7f9d"
+      // "variables": "#3aa7ce"
+    },
+    "[Default Dark+ Experimental]": {
+      "variables": "#9f668c",
+      // "variables": "#8cc2d5a7",
+      "types": "#4ec990e4"
+      // "variables": "#5695aa"
+      // "variables": "#4990aa"
+      // "variables": "#3aa7ce"
+    }
+  }
+}
