@@ -8,7 +8,8 @@
 
   "workbench.colorCustomizations": {
     "[The Dragonight]": {
-      "editor.foreground": "#848ebf"
+      "editor.foreground": "#0d7eaf"
+      //"editor.foreground": "#848ebf" //good color
     },
     "[Default Dark+]": {
       "statusBar.background": "#181818",
@@ -33,7 +34,7 @@
       // "variables": "#3aa7ce"
     },
     "[Default Dark+ Experimental]": {
-      "variables": "#9f668c",
+      // "variables": "#9f668c",  //good color
       // "variables": "#8cc2d5a7",
       "types": "#4ec990e4"
       // "variables": "#5695aa"
