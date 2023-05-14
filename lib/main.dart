@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'testing/testOne/request.dart';
+import 'testing/testOne/req_card.dart';
 
 void main() {
   runApp(const MaterialApp(
@@ -6,8 +8,19 @@ void main() {
   ));
 }
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  List<Request> req = [
+    Request(name: 'John', email: 'smith@gmail.com'),
+    Request(name: 'amber', email: 'jane@gmail.com'),
+    Request(name: 'karl', email: 'karl@gmail.com'),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -24,38 +37,38 @@ class Home extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Container(
-                margin: const EdgeInsets.only(bottom: 18),
-                padding: const EdgeInsets.fromLTRB(0, 60, 0, 60),
-                decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 232, 232, 234),
-                    borderRadius: BorderRadius.circular(8)),
-                child: Column(
-                  //Name card
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: const <Widget>[
-                    Padding(
-                      padding: EdgeInsets.only(bottom: 10),
-                      child: Text(
-                        "487,287",
-                        style: TextStyle(
-                            fontSize: 18,
-                            color: Color.fromARGB(255, 100, 99, 99),
-                            fontFamily: 'Lato',
-                            fontWeight: FontWeight.w600),
-                      ),
-                    ),
-                    Text(
-                      "Blind",
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontFamily: 'Lato',
-                          color: Color.fromARGB(255, 148, 148, 148),
-                          fontWeight: FontWeight.w400),
-                    )
-                  ],
-                ),
-              ),
+              // Container(
+              //   margin: const EdgeInsets.only(bottom: 18),
+              //   padding: const EdgeInsets.fromLTRB(0, 60, 0, 60),
+              //   decoration: BoxDecoration(
+              //       color: const Color.fromARGB(255, 232, 232, 234),
+              //       borderRadius: BorderRadius.circular(8)),
+              //   child: Column(
+              //     //Name card
+              //     crossAxisAlignment: CrossAxisAlignment.center,
+              //     children: const <Widget>[
+              //       Padding(
+              //         padding: EdgeInsets.only(bottom: 10),
+              //         child: Text(
+              //           "487,287",
+              //           style: TextStyle(
+              //               fontSize: 18,
+              //               color: Color.fromARGB(255, 100, 99, 99),
+              //               fontFamily: 'Lato',
+              //               fontWeight: FontWeight.w600),
+              //         ),
+              //       ),
+              //       Text(
+              //         "Blind",
+              //         style: TextStyle(
+              //             fontSize: 16,
+              //             fontFamily: 'Lato',
+              //             color: Color.fromARGB(255, 148, 148, 148),
+              //             fontWeight: FontWeight.w400),
+              //       )
+              //     ],
+              //   ),
+              // ),
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
                 decoration: BoxDecoration(
@@ -107,27 +120,39 @@ class Home extends StatelessWidget {
                           letterSpacing: 0.6),
                     )),
               ),
-              Container(
-                padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
-                decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 232, 232, 234),
-                    borderRadius: BorderRadius.circular(8)),
-                child: Column(
-                  //Name card
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: const <Widget>[
-                    Text(
-                      "You will recive a notification when someone \n needs your help",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontFamily: 'Lato',
-                          color: Color.fromARGB(255, 148, 148, 148),
-                          fontWeight: FontWeight.w400),
-                    )
-                  ],
-                ),
-              ),
+              // Container(
+              //   padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
+              //   decoration: BoxDecoration(
+              //       color: const Color.fromARGB(255, 232, 232, 234),
+              //       borderRadius: BorderRadius.circular(8)),
+              //   child: Column(
+              //     //Name card
+              //     crossAxisAlignment: CrossAxisAlignment.center,
+              //     children: const <Widget>[
+              //       Text(
+              //         "You will recive a notification when someone \n needs your help",
+              //         textAlign: TextAlign.center,
+              //         style: TextStyle(
+              //             fontSize: 16,
+              //             fontFamily: 'Lato',
+              //             color: Color.fromARGB(255, 148, 148, 148),
+              //             fontWeight: FontWeight.w400),
+              //       )
+              //     ],
+              //   ),
+              // ),
+              Column(
+                children: req
+                    .map((r) => ReqTemplate(
+                          request: r,
+                          delete: () {
+                            setState(() {
+                              req.remove(r);
+                            });
+                          },
+                        ))
+                    .toList(),
+              )
             ],
           )),
       floatingActionButton: FloatingActionButton(
@@ -137,12 +162,7 @@ class Home extends StatelessWidget {
             Icons.camera,
             size: 28,
             color: Color.fromARGB(255, 237, 238, 241),
-          )
-          // child: const Text(
-          //   '+',
-          //   style: TextStyle(fontSize: 30),
-          // ),
-          ),
+          )),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
         notchMargin: 5.0,
